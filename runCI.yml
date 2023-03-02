@@ -1,0 +1,54 @@
+name: Movies app Test execution
+
+on:
+  workflow_dispatch:
+    inputs:
+      specfiles:
+        description: Define spec path
+        required: true
+        default: cypress/e2e/mockDataTest.js
+      containers:
+        description: "Containers"
+        required: true
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      uuid: ${{ steps.uuid.outputs.value }}
+    steps:
+      - name: Generate unique ID
+        id: uuid
+        run: echo "::set-output name=value::sha-$GITHUB_SHA-time-$(date +"%s")"
+
+      - name: Print unique ID
+        run: echo "generated id ${{ steps.uuid.outputs.value }}"
+  get-containers:
+    name: get-containers
+    runs-on: ubuntu-latest
+    outputs:
+      containers: ${{ steps.set-containers.outputs.containers }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: set container
+        id: set-containers
+        run: |
+          for (( i=1; i <= ${{ github.event.inputs.containers }}; i++ ))
+          do
+            arr+="$i," 
+          done  
+          echo "::set-output name=containers::["${arr[@]::-1}"]"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Chrome Browser run
+        uses: cypress-io/github-action@v4
+        with:
+          start: npm run
+          browser: chrome
+          wait-on-timeout: 3000
+          record: true
+          parallel: true
+          ci-build-id: ${{ needs.prepare.outputs.uuid }}
+          spec: ${{ github.event.inputs.specfiles }}

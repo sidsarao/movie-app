@@ -1,0 +1,50 @@
+{
+  "name": "frontend-tech-test",
+  "version": "1.0.0",
+  "description": "## Display OMDb results The task here today will be to create a very simple ui to search for and render back a list of movies from the OMDB api, utilizing the fetch api, and without using inline html event handlers. We'll want to have all of the results aggregated (iterate over each paginated result set and merge into a single collection), have them sorted by release year, then title, and then have a poster thumb with year and title rendered for each result. We'll then want some kind of singular view for movie details (the endpoint provides seperate information) for each result. This should be done without incorporating any frameworks or external libraries (you may use a different style reset/normalizer if you prefer, though one has already been included)",
+  "main": "./src/main.js",
+  "scripts": {
+    "dev": "webpack serve --mode development --env development",
+    "start": "npm run dev && node server.js"
+  },
+  "testRegex": "(/__specs__/.*|\\.(spec))\\.(js)$",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s1cklik3/frontend-tech-test-main.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s1cklik3/frontend-tech-test-main/issues"
+  },
+  "homepage": "https://github.com/s1cklik3/frontend-tech-test-main#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/runtime": "^7.14.8",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^27.0.6",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^6.2.0",
+    "cypress": "^12.5.1",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "prettier": "2.3.2",
+    "script-loader": "^0.7.2",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1"
+  }
+}

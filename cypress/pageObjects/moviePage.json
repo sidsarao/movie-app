@@ -1,0 +1,8 @@
+{
+    "searchBar": "[placeholder='Search for a Movie']",
+    "searchPlaceholder": "div:Contains('Search for a Movie')",
+    "movieList": "[class='movie-list-item']",
+    "movieNameHeader": "[class='movie-title']",
+    "eleImage": "[class='movie-img']",
+    "eleMovieInfo": "[class='movie-info']"
+}
